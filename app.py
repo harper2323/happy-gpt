@@ -77,11 +77,11 @@ def handle_message(event):
             FlexSendMessage(alt_text="發卡片", contents=card))
         return
     ai_msg = msg[:6].lower()
-    if ai_msg == '搜尋戲劇':
+    if ai_msg == 'hi ai:':
             # 將第六個字元之後的訊息發送給 OpenAI
             response = openai.Completion.create(
                 model='text-davinci-003',
-                prompt=msg[4],
+                prompt=msg[6:],
                 max_tokens=256,
                 temperature=0.5,
                 )
